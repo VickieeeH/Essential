@@ -1,0 +1,29 @@
+/* Header */
+.top-bar.menu, .top-bar.menu ul {
+    background-color: #B72039;
+    color: #fff;
+}
+
+.menu>li>a {
+  color: #fff;
+}
+
+.callout.home-header{
+  border: 0;
+}
+
+/* Button */
+.btn-large.default-btn, .btn-large.default-btn:hover{
+  background-color: #B72039;
+  color: #fff;
+}
+
+/* Form */
+[type=text], [type=password], [type=date], [type=datetime], [type=datetime-local], [type=month], [type=week], [type=email], [type=tel], [type=time], [type=url], [type=color], [type=number], [type=search], textarea{
+  border: none !important;
+  border-bottom: 1px solid #B72039 !important;
+}
+
+.field label{
+  font-size: 1.5rem;
+}

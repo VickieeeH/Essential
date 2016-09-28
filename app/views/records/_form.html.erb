@@ -1,0 +1,12 @@
+<%= form_for (@record) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :desciption %>
+  <%= f.text_area :content %>
+  <%= f.label :frequency %>
+  <%= f.text_field :frequency %>
+  <%= f.label :date %>
+  <%= f.date_field :due_date %>
+
+  <%= f.submit class: 'button radius'%>
+<% end %>

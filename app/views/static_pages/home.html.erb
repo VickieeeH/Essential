@@ -1,0 +1,40 @@
+<div class="callout large home-header">
+  <div class="row column text-center">
+    <h1>NZ Essential To-Do List</h1>
+    <p class="lead">Where you keep all the document up to date.</p>
+    <a href="#" class="waves-effect waves-light btn-large default-btn">About</a>
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "waves-effect waves-light btn-large default-btn") %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path , :class => "waves-effect waves-light btn-large default-btn") %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= link_to('Edit Profile', edit_user_registration_path, :class => "waves-effect waves-light btn-large default-btn") %>
+    <% else %>
+      <%= link_to('Register', new_user_registration_path, :class => "waves-effect waves-light btn-large default-btn")  %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-4 columns">
+    <h3>Health</h3>
+    <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
+  </div>
+  <div class="medium-4 columns">
+    <h3>Car</h3>
+    <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
+  </div>
+  <div class="medium-4 columns">
+    <h3>Property</h3>
+    <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+<hr>
+  <div class="row column">
+    <h3>Your upcoming to-do</h3>
+  </div>
+<% end %>

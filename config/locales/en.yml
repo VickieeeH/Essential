@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  desciption: "Description"
+  category: "Category"
+  status: "Status"
+  content: "Content"
+  frequency: "Frequency"
