@@ -22,9 +22,19 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update
+    @record = Record.find(params[:id])
+    if @record.update_attributes(record_params)
+      flash[:success] = "Profile updated"
+      redirect_to records_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def record_params
-    params.require(:record).permit(:title, :content, :frequency, :due_date)
+    params.require(:record).permit(:title, :content, :frequency, :due_date, :category_id)
   end
 end

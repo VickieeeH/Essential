@@ -1,7 +1,43 @@
+@import 'https://fonts.googleapis.com/css?family=Pavanam';
+
+/* Layout */
+.row.fullWidth{
+  max-width: 100%;
+  width: 100%;
+}
+
+.columns .callout.primary{
+  background-color: #fff ;
+  border: 0;
+}
+
+/* Font */
+body{
+  font-family: 'Pavanam', sans-serif !important;
+}
+
+label{
+  font-size: 1.8rem !important;
+  color: #B72039 !important;
+}
+
+.brandColor{
+  color: #B72039 !important;
+}
+
+.btn-text{
+  margin-left: 1rem;
+}
+
+.right-text{
+  float: right;
+}
+
 /* Header */
 .top-bar.menu, .top-bar.menu ul {
     background-color: #B72039;
     color: #fff;
+    font-size: 1.4rem;
 }
 
 .menu>li>a {
@@ -10,6 +46,12 @@
 
 .callout.home-header{
   border: 0;
+  background-image: url(/assets/header-background.jpg);
+  padding: 10rem !important;
+}
+
+.top-bar-right{
+  margin-top: .6rem;
 }
 
 /* Button */
@@ -18,12 +60,70 @@
   color: #fff;
 }
 
+.actions input[type="submit"]{
+  background-color: #B72039;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+}
+
+.btn-floating.red{
+  color: #fff !important;
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
 /* Form */
 [type=text], [type=password], [type=date], [type=datetime], [type=datetime-local], [type=month], [type=week], [type=email], [type=tel], [type=time], [type=url], [type=color], [type=number], [type=search], textarea{
   border: none !important;
   border-bottom: 1px solid #B72039 !important;
+  font-size: 2rem !important;
+}
+
+.input-field select{
+  display: block !important;
+  font-size: 1.5rem;
 }
 
 .field label{
   font-size: 1.5rem;
+}
+
+textarea{
+  height: 10rem !important;
+}
+
+/* alert box */
+.alert-box.success {
+  background-color: #43AC6A;
+  border-color: #3a945b;
+  color: #FFFFFF;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.alert-box.warning {
+  background-color: #f08a24;
+  border-color: #de770f;
+  color: #FFFFFF;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+/* records */
+.off-canvas-content .callout.primary{
+  background-color: #fff;
+}
+
+.card-content p{
+  font-size: 1.3rem;
+}
+
+.side-list{
+  font-size: 1.3rem;
+}
+
+.side-list li a, .side-list li a:hover{
+  color: #B72039;
+  background-color: #fff;
 }

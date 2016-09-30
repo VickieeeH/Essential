@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   get 'users/new'
   root to: "static_pages#home"
 

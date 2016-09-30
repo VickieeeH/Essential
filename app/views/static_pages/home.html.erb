@@ -1,8 +1,9 @@
 <div class="callout large home-header">
   <div class="row column text-center">
     <h1>NZ Essential To-Do List</h1>
-    <p class="lead">Where you keep all the document up to date.</p>
-    <a href="#" class="waves-effect waves-light btn-large default-btn">About</a>
+    <p class="lead z-depth-4">Where you keep all the document up to date.</p>
+    <br>
+    <a href="#" class="waves-effect waves-light btn-large default-btn">Getting Started</a>
     <% if user_signed_in? %>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "waves-effect waves-light btn-large default-btn") %>
     <% else %>
@@ -18,16 +19,19 @@
 </div>
 
 <div class="row">
-  <div class="medium-4 columns">
+  <div class="medium-4 columns text-center">
     <h3>Health</h3>
+    <img src="/assets/front-health.png">
     <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
   </div>
-  <div class="medium-4 columns">
+  <div class="medium-4 columns text-center">
     <h3>Car</h3>
+    <img src="/assets/front-health.png">
     <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
   </div>
-  <div class="medium-4 columns">
+  <div class="medium-4 columns text-center">
     <h3>Property</h3>
+    <img src="/assets/front-health.png">
     <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
   </div>
 </div>
@@ -36,5 +40,37 @@
 <hr>
   <div class="row column">
     <h3>Your upcoming to-do</h3>
+    <table class="centered">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Title</th>
+          <th>Due Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+        <tbody>
+        <% Record.all.each do |record| %>
+          <tr>
+            <td><%= record.category.title %></td>
+            <td><%= record.title %></td>
+            <td><%= record.due_date.strftime("Due on %m %B %Y") %></td>
+            <td>
+              <% if record.status == 0 %>
+                <a class="waves-effect waves-light btn">
+                  TO-DO
+                </a>
+              <% end %>
+              <% if record.status == 1 %>
+                <a class="waves-effect waves-light btn">Pending</a>
+              <% end %>
+              <% if record.status == 2 %>
+                <a class="waves-effect waves-light btn">Done</a>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 <% end %>

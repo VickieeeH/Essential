@@ -1,0 +1,34 @@
+<br>
+<div>
+  <%= link_to '+', new_record_path, :class => "btn-floating btn-large waves-effect waves-light red" %><span class="brandColor btn-text">Add new record</span>
+</div>
+  <% @records.each do |record| %>
+    <div class="col s12 m6">
+      <h3 class="header text-center"><%= record.title %></h3>
+      <div class="card horizontal">
+        <div class="card-image">
+          <!-- <img src="/assets/record-placeholder.jpeg"> -->
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><%= record.content %></p>
+            <p>How often: <%= record.frequency %></p>
+            <p>Due: <%= record.due_date.strftime("%m %B %Y") %></p>
+            <p>Category: <%= record.category.title %></p>
+          </div>
+          <div class="card-action">
+            <div class="col s12 m6">
+            <%= button_to "Edit", record_path(record.id),
+:class => "waves-effect waves-light btn blue-grey darken-4
+", :method => :get %>
+            </div>
+            <div class="col s12 m6">
+            <%= button_to "Delete", record,
+      :class => "waves-effect waves-light btn blue-grey darken-4
+", :method => :delete, data: { confirm: 'Are you sure to delete this record?' } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>

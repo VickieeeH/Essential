@@ -19,10 +19,17 @@
   <body>
     <%= render 'layouts/header' %>
     <% if notice %>
-      <p class="alert alert-success text-center"><%= notice %></p>
+    <div data-alert class="alert-box success radius text-center">
+      <%= notice %>
+      <a href="#" class="close">&times;</a>
+    </div>
+
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger text-center"><%= alert %></p>
+    <div data-alert class="alert-box warning radius text-center">
+      <%= alert %>
+      <a href="#" class="close">&times;</a>
+    </div>
     <% end %>
     <%= yield %>
     <hr>

@@ -1,0 +1,11 @@
+<div class="row">
+<h1>New</h1>
+<%= render 'form', category: @category %>
+
+<%= button_to "Back", records_path,
+:class => "waves-effect waves-light btn blue-grey darken-4 right-text
+", :method => :get %>
+
+<%= render 'all_categories' %>
+
+</div>

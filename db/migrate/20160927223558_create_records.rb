@@ -7,7 +7,7 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.string :status
       t.string :frequency
       t.date :due_date
-
+      t.integer :status
       t.references :user, foreign_key: true
       t.timestamps
     end

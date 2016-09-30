@@ -1,0 +1,28 @@
+<br>
+<div>
+  <%= link_to '+', new_category_path, :class => "btn-floating btn-large waves-effect waves-light red" %><span class="brandColor btn-text">Add new category</span>
+</div>
+<br>
+  <% Category.all.each do |category| %>
+   <div class="col s12 m6">
+     <div class="card red darken-4">
+       <div class="card-content white-text">
+         <span class="card-title"><%= category.title %></span>
+       </div>
+       <div class="card-action">
+         <div class="col s12 m6">
+           <%= button_to "Edit", edit_category_path(category.id),
+  :class => "waves-effect waves-light btn blue-grey darken-4
+  ", :method => :get %>
+          </div>
+        <div class="col s12 m6">
+         <%= button_to "Delete", category,
+   :class => "waves-effect waves-light btn blue-grey darken-4
+", :method => :delete, data: { confirm: 'Are you sure to delete this record?' } %>
+        </div>
+        <br>
+        <br>
+       </div>
+     </div>
+   </div>
+ <% end %>

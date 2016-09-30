@@ -1,0 +1,72 @@
+  <div class="row z-depth-3" data-off-canvas-wrapper>
+       <div class="col s12">
+         <div class="card red darken-4">
+           <div class="card-content white-text">
+             <span class="card-title">Category: <%= @category.title %></span>
+           </div>
+           <div class="card-action">
+             <div class="col s12 m4">
+             <%= button_to "Back", records_path,
+       :class => "waves-effect waves-light btn blue-grey darken-4
+ ", :method => :get %>
+             </div>
+             <div class="col s12 m4">
+             <%= button_to "Edit", edit_category_path(@category),
+ :class => "waves-effect waves-light btn teal accent-4
+ ", :method => :get %>
+             </div>
+             <div class="col s12 m4">
+             <%= button_to "Delete", @category,
+       :class => "waves-effect waves-light btn deep-orange accent-4
+ ", :method => :delete, data: { confirm: 'Are you sure to delete this record?' } %>
+             </div>
+            <br>
+            <br>
+           </div>
+         </div>
+       </div>
+
+
+    <div class="col s12 columns" data-off-canvas-content>
+      <div class="title-bar hide-for-large">
+        <div class="title-bar-left">
+          <button class="menu-icon" type="button" data-open="my-info"></button>
+        </div>
+      </div>
+      <div class="callout primary">
+        <div class="row column">
+          <% @category.records.each do |record| %>
+            <div class="col s12 m6">
+              <h3 class="header text-center"><%= record.title %></h3>
+              <div class="card horizontal">
+                <div class="card-image">
+                  <!-- <img src="/assets/record-placeholder.jpeg"> -->
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <p><%= record.content %></p>
+                    <p>How often: <%= record.frequency %></p>
+                    <p>Due Date: <%= record.due_date %></p>
+                    <p>Category: <%= record.category.title %></p>
+                  </div>
+                  <div class="card-action">
+                    <div class="col s12 m6">
+                    <%= button_to "Edit", record_path(record.id),
+        :class => "waves-effect waves-light btn blue-grey darken-4
+        ", :method => :get %>
+                    </div>
+                    <div class="col s12 m6">
+                    <%= button_to "Delete", record,
+              :class => "waves-effect waves-light btn blue-grey darken-4
+        ", :method => :delete, data: { confirm: 'Are you sure to delete this record?' } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+        </div>
+        <%= link_to('Add new record', new_record_path) %>
+      </div>
+    </div>
+  </div>
