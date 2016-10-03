@@ -2,15 +2,15 @@ class RecordsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @record = Record.find(params[:id])
+    @record = current_user.records.find(params[:id])
   end
 
   def new
-    @record = Record.new
+    @record = current_user.records.new
   end
 
   def index
-    @records = Record.all
+    @records = current_user.records.all
   end
 
   def create
@@ -23,9 +23,27 @@ class RecordsController < ApplicationController
   end
 
   def update
-    @record = Record.find(params[:id])
+    @record = current_user.records.find(params[:id])
     if @record.update_attributes(record_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Record updated"
+      redirect_to records_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      format.html { redirect_to records_url, notice: 'Record was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def update_status
+    @record = current_user.records.find(params[:id])
+    return if @record.status == 3
+    if @record.update_attributes({status: (@record.status + 1)})
+      flash[:success] = "Record updated"
       redirect_to records_path
     else
       render 'edit'

@@ -50,25 +50,17 @@
         </tr>
       </thead>
         <tbody>
-        <% Record.all.each do |record| %>
+        <% current_user.records.all.each do |record| %>
+          <% unless record.status_title == "Deleted" %>
           <tr>
-            <td><%= record.category.title %></td>
+            <td><%= record.category.title unless Record.last.category.nil? %></td>
             <td><%= record.title %></td>
             <td><%= record.due_date.strftime("Due on %m %B %Y") %></td>
             <td>
-              <% if record.status == 0 %>
-                <a class="waves-effect waves-light btn">
-                  TO-DO
-                </a>
-              <% end %>
-              <% if record.status == 1 %>
-                <a class="waves-effect waves-light btn">Pending</a>
-              <% end %>
-              <% if record.status == 2 %>
-                <a class="waves-effect waves-light btn">Done</a>
-              <% end %>
+                <%= button_to "#{record.status_title}", update_status_record_path(record.id), :method => :post, :class => "waves-effect waves-light btn red"%>
             </td>
           </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>

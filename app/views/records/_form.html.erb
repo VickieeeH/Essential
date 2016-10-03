@@ -4,11 +4,9 @@
     <%= f.text_field :title %>
     <%= f.label :desciption %>
     <%= f.text_area :content %>
-    <%= f.label :frequency %>
-    <%= f.text_field :frequency %>
     <%= f.label :category %>
     <div class="input-field">
-    <%= f.select(:category_id, Category.all.map {|lc| [lc.title, lc.id]}, {prompt: 'Select Category'}) %>
+    <%= f.select(:category_id, current_user.categories.all.map {|lc| [lc.title, lc.id]}, {prompt: 'Select Category'}) %>
     </div>
     <%= f.label :date %>
     <%= f.date_field :due_date %>

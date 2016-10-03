@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_many :records, :dependent => :destroy
+  belongs_to :user
 
   validates :title,
           :presence => {:message => "Title can't be blank." },

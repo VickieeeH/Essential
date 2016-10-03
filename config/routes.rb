@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   get  '/contact',   to: 'static_pages#contact'
 
   devise_for :users
-  resources :records
+  resources :records do
+    member do
+      post 'update_status'
+    end
+  end
   resources :users
-
+  # post "records/update_status" => "records#update_status"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

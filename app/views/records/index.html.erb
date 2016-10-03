@@ -6,7 +6,7 @@
         <br>
         <h5>Categories</h5>
         <ul class="side-list">
-          <% Category.all.each do |item| %>
+          <% current_user.categories.all.each do |item| %>
             <li><%= link_to(item.title, category_path(item.id)) %>
           <% end %></li>
         </ul>

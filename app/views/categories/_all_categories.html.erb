@@ -3,7 +3,7 @@
   <h4 class="brandColor">Current categories</h4>
 </div>
 <br>
-  <% Category.all.each do |category| %>
+  <% current_user.categories.all.each do |category| %>
    <div class="col s12 m6">
      <div class="card red darken-4">
        <div class="card-content white-text">

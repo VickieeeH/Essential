@@ -3,6 +3,7 @@
   <%= link_to '+', new_record_path, :class => "btn-floating btn-large waves-effect waves-light red" %><span class="brandColor btn-text">Add new record</span>
 </div>
   <% @records.each do |record| %>
+    <% unless record.status_title == "Deleted" %>
     <div class="col s12 m6">
       <h3 class="header text-center"><%= record.title %></h3>
       <div class="card horizontal">
@@ -15,6 +16,9 @@
             <p>How often: <%= record.frequency %></p>
             <p>Due: <%= record.due_date.strftime("%m %B %Y") %></p>
             <p>Category: <%= record.category.title %></p>
+            <p>Status:
+              <%= button_to "#{record.status_title}", update_status_record_path(record.id), :method => :post, :class => "waves-effect waves-light btn red"%>
+            </p>
           </div>
           <div class="card-action">
             <div class="col s12 m6">
@@ -31,4 +35,5 @@
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
